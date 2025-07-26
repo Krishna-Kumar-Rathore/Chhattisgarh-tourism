@@ -42,44 +42,7 @@ MongoDB (v4.4 or higher)
 
 
 
-📁 Project Structure
-chhattisgarh-tourism/
-├── backend/
-│   ├── models/
-│   │   ├── User.js
-│   │   └── Place.js
-│   ├── routes/
-│   │   ├── auth.js
-│   │   └── places.js
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   └── placeController.js
-│   ├── middleware/
-│   │   └── auth.js
-│   ├── config/
-│   └── server.js
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Navbar.js
-│   │   │   ├── PlaceCard.js
-│   │   │   └── SearchFilter.js
-│   │   ├── pages/
-│   │   │   ├── Home.js
-│   │   │   ├── BeInspired.js
-│   │   │   ├── Places.js
-│   │   │   ├── ThingsToDo.js
-│   │   │   ├── Wishlist.js
-│   │   │   ├── Login.js
-│   │   │   ├── Register.js
-│   │   │   └── admin/
-│   │   ├── context/
-│   │   │   └── AuthContext.js
-│   │   ├── styles/
-│   │   │   └── global.css
-│   │   └── App.js
-│   └── public/
-└── README.md
+
 🔗 API Endpoints
 Authentication
 POST /api/auth/register - User registration
