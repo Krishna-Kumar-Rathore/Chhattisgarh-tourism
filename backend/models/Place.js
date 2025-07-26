@@ -20,13 +20,8 @@ const placeSchema = new mongoose.Schema({
     required: true
   },
   images: [{
-    filename: String,
-    data: String, // Base64 encoded image data
-    contentType: String, // image/jpeg, image/png, etc.
-    size: Number // File size in bytes
+    type: String // Simple URL strings
   }],
-  bestTimeToVisit: String,
-  facilities: [String],
   featured: {
     type: Boolean,
     default: false

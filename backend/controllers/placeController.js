@@ -1,27 +1,6 @@
 const Place = require('../models/Place');
 const User = require('../models/User');
 
-// Helper function to validate image data
-const validateImageData = (imageData) => {
-  if (!imageData.data || !imageData.contentType) {
-    throw new Error('Invalid image data');
-  }
-  
-  // Check if it's a valid image type
-  const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp', 'image/bmp'];
-  if (!validTypes.includes(imageData.contentType.toLowerCase())) {
-    throw new Error('Invalid image type. Supported types: JPEG, PNG, GIF, WebP, BMP');
-  }
-  
-  // Check file size (5MB limit)
-  const maxSize = 5 * 1024 * 1024; // 5MB in bytes
-  if (imageData.size > maxSize) {
-    throw new Error('Image size must be less than 5MB');
-  }
-  
-  return true;
-};
-
 exports.getAllPlaces = async (req, res) => {
   try {
     const { city, category, search, featured } = req.query;
@@ -59,20 +38,19 @@ exports.getPlaceById = async (req, res) => {
 
 exports.createPlace = async (req, res) => {
   try {
-    const { images, ...placeData } = req.body;
+    // Filter out any unwanted fields and only keep allowed ones
+    const { name, description, city, category, images, featured } = req.body;
     
-    // Validate images if provided
-    if (images && images.length > 0) {
-      for (const image of images) {
-        validateImageData(image);
-      }
-    }
+    const placeData = {
+      name,
+      description,
+      city,
+      category,
+      images: images || [],
+      featured: featured || false
+    };
     
-    const place = await Place.create({
-      ...placeData,
-      images: images || []
-    });
-    
+    const place = await Place.create(placeData);
     res.status(201).json({ success: true, place });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -81,21 +59,21 @@ exports.createPlace = async (req, res) => {
 
 exports.updatePlace = async (req, res) => {
   try {
-    const { images, ...placeData } = req.body;
+    // Filter out any unwanted fields and only keep allowed ones
+    const { name, description, city, category, images, featured } = req.body;
     
-    // Validate images if provided
-    if (images && images.length > 0) {
-      for (const image of images) {
-        validateImageData(image);
-      }
-    }
+    const placeData = {
+      name,
+      description,
+      city,
+      category,
+      images: images || [],
+      featured: featured || false
+    };
     
     const place = await Place.findByIdAndUpdate(
       req.params.id, 
-      {
-        ...placeData,
-        images: images || []
-      },
+      placeData,
       {
         new: true,
         runValidators: true
