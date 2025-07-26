@@ -39,79 +39,8 @@ Before running this application, make sure you have the following installed:
 
 Node.js (v14 or higher)
 MongoDB (v4.4 or higher)
-Git
-⚙️ Installation & Setup
-1. Clone the Repository
-bash
-git clone https://github.com/yourusername/chhattisgarh-tourism.git
-cd chhattisgarh-tourism
-2. Backend Setup
-bash
-# Navigate to backend directory
-cd backend
 
-# Install dependencies
-npm install
 
-# Create environment file
-cp .env.example .env
-
-# Edit .env file with your configuration
-MONGODB_URI=mongodb://localhost:27017/chhattisgarh_tourism
-JWT_SECRET=your_jwt_secret_key_here
-PORT=5000
-3. Frontend Setup
-bash
-# Navigate to frontend directory
-cd ../frontend
-
-# Install dependencies
-npm install
-4. Database Setup
-bash
-# Make sure MongoDB is running
-# The application will create the database automatically
-🏃‍♂️ Running the Application
-Development Mode
-Start Backend Server
-bash
-cd backend
-npm run dev
-Backend will run on http://localhost:5000
-
-Start Frontend Server
-bash
-cd frontend
-npm start
-Frontend will run on http://localhost:3000
-
-Production Mode
-bash
-# Build frontend
-cd frontend
-npm run build
-
-# Start backend in production
-cd ../backend
-npm start
-👨‍💼 Admin Setup
-Create Admin User
-Method 1: Using Registration + Database Update
-Register a user through the frontend
-Update the user role in MongoDB:
-javascript
-db.users.updateOne(
-  { email: "admin@example.com" },
-  { $set: { role: "admin" } }
-)
-Method 2: Using Seed Script
-bash
-cd backend
-node scripts/createAdmin.js
-Default Admin Credentials (if using seed script)
-Email: admin@chhattisgarh.com
-Password: admin123
-⚠️ Important: Change the default password after first login!
 
 📁 Project Structure
 chhattisgarh-tourism/
@@ -244,11 +173,7 @@ Check the Issues page
 Create a new issue if your problem isn't already reported
 Provide detailed information about the problem
 🙏 Acknowledgments
-Inspiration from Chhattisgarh Tourism Board
-React.js community for excellent documentation
-MongoDB team for the robust database solution
-All contributors who helped improve this project
-Made with ❤️ for promoting Chhattisgarh Tourism
+Inspiration from Chhattisgarh Tourism Board React.js community for excellent documentation MongoDB team for the robust database solution All contributors who helped improve this project Made with ❤️ for promoting Chhattisgarh Tourism
 
 📊 Project Statistics
 Total Components: 15+
