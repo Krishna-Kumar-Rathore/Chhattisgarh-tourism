@@ -39,10 +39,138 @@ Before running this application, make sure you have the following installed:
 
 Node.js (v14 or higher)
 MongoDB (v4.4 or higher)
+<<<<<<< HEAD
 
 
 
 
+=======
+Git
+⚙️ Installation & Setup
+
+1. Clone the Repository
+   bash
+   git clone https://github.com/yourusername/chhattisgarh-tourism.git
+   cd chhattisgarh-tourism
+2. Backend Setup
+   bash
+
+# Navigate to backend directory
+
+cd backend
+
+# Install dependencies
+
+npm install
+
+# Create environment file
+
+cp .env.example .env
+
+# Edit .env file with your configuration
+
+MONGODB_URI=mongodb://localhost:27017/chhattisgarh_tourism
+JWT_SECRET=your_jwt_secret_key_here
+PORT=5000 3. Frontend Setup
+bash
+
+# Navigate to frontend directory
+
+cd ../frontend
+
+# Install dependencies
+
+npm install 4. Database Setup
+bash
+
+# Make sure MongoDB is running
+
+# The application will create the database automatically
+
+🏃‍♂️ Running the Application
+Development Mode
+Start Backend Server
+bash
+cd backend
+npm run dev
+Backend will run on http://localhost:5000
+
+Start Frontend Server
+bash
+cd frontend
+npm start
+Frontend will run on http://localhost:3000
+
+Production Mode
+bash
+
+# Build frontend
+
+cd frontend
+npm run build
+
+# Start backend in production
+
+cd ../backend
+npm start
+👨‍💼 Admin Setup
+Create Admin User
+Method 1: Using Registration + Database Update
+Register a user through the frontend
+Update the user role in MongoDB:
+javascript
+db.users.updateOne(
+{ email: "admin@example.com" },
+{ $set: { role: "admin" } }
+)
+Method 2: Using Seed Script
+bash
+cd backend
+node scripts/createAdmin.js
+Default Admin Credentials (if using seed script)
+Email: admin@chhattisgarh.com
+Password: admin123
+⚠️ Important: Change the default password after first login!
+
+📁 Project Structure
+chhattisgarh-tourism/
+├── backend/
+│ ├── models/
+│ │ ├── User.js
+│ │ └── Place.js
+│ ├── routes/
+│ │ ├── auth.js
+│ │ └── places.js
+│ ├── controllers/
+│ │ ├── authController.js
+│ │ └── placeController.js
+│ ├── middleware/
+│ │ └── auth.js
+│ ├── config/
+│ └── server.js
+├── frontend/
+│ ├── src/
+│ │ ├── components/
+│ │ │ ├── Navbar.js
+│ │ │ ├── PlaceCard.js
+│ │ │ └── SearchFilter.js
+│ │ ├── pages/
+│ │ │ ├── Home.js
+│ │ │ ├── BeInspired.js
+│ │ │ ├── Places.js
+│ │ │ ├── ThingsToDo.js
+│ │ │ ├── Wishlist.js
+│ │ │ ├── Login.js
+│ │ │ ├── Register.js
+│ │ │ └── admin/
+│ │ ├── context/
+│ │ │ └── AuthContext.js
+│ │ ├── styles/
+│ │ │ └── global.css
+│ │ └── App.js
+│ └── public/
+└── README.md
+>>>>>>> 4dd6475 (MongoDB Atlas Setup for hosting)
 🔗 API Endpoints
 Authentication
 POST /api/auth/register - User registration
@@ -78,16 +206,21 @@ Input Validation - Server-side validation for all inputs
 Create a .env file in the backend directory:
 
 env
+
 # Database
+
 MONGODB_URI=mongodb://localhost:27017/chhattisgarh_tourism
 
 # JWT
+
 JWT_SECRET=your_super_secret_jwt_key_here
 
 # Server
+
 PORT=5000
 
 # Admin Creation (Optional)
+
 CREATE_DEFAULT_ADMIN=true
 ADMIN_NAME=Admin User
 ADMIN_EMAIL=admin@chhattisgarh.com
@@ -120,15 +253,15 @@ Images are stored as URLs (consider implementing file upload for production)
 No image optimization (consider adding image compression)
 Basic search functionality (could be enhanced with full-text search)
 🔮 Future Enhancements
- File upload for images with cloud storage
- Advanced search with filters
- User reviews and ratings
- Interactive maps integration
- Social media sharing
- Email notifications
- Multi-language support
- Weather integration
- Booking system integration
+File upload for images with cloud storage
+Advanced search with filters
+User reviews and ratings
+Interactive maps integration
+Social media sharing
+Email notifications
+Multi-language support
+Weather integration
+Booking system integration
 📞 Support
 If you encounter any issues or have questions, please:
 

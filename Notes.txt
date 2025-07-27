@@ -1,5 +1,31 @@
+<<<<<<< HEAD
+=======
+curl -X POST http://localhost:5000/api/auth/create-admin \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Admin User",
+    "email": "admin@chhattisgarh.com",
+    "password": "admin123",
+    "adminSecret": "your_super_secret_admin_key_here"
+  }'
+
+
+
+
+UserId : krishnakr2835
+Password : ChhattisgarhTourism
+
+
+
+>>>>>>> 4dd6475 (MongoDB Atlas Setup for hosting)
 # Terminal 1 - Backend
 cd backend && npm run dev
 
 # Terminal 2 - Frontend  
 cd frontend && npm start
+<<<<<<< HEAD
+=======
+
+
+mongoimport --uri "mongodb+srv://krishnakr2835:ChhattisgarhTourism@cluster0.xxxxx.mongodb.net/chhattisgarh_tourism" --collection users --file users.json --jsonArray
+>>>>>>> 4dd6475 (MongoDB Atlas Setup for hosting)
