@@ -19,7 +19,7 @@ Backend: Node.js, Express.js, MongoDB Atlas, Mongoose, JWT, bcryptjs
 
 
 ## 📁 Project Structure
-
+```
 chhattisgarh-tourism/
 ├── backend/
 │   ├── models/
